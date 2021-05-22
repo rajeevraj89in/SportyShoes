@@ -80,7 +80,7 @@ public class ProductController {
 	@RequestMapping("/{id}/editProductCategory")
 	public String editProductCategory(@PathVariable("id") Integer id, Model model) {
 		ProductCategory productCategories = this.productCategoryRepo.findById(id).get();
-		System.out.println("Product Category: " + productCategories);
+//		System.out.println("Product Category: " + productCategories);
 		model.addAttribute("productCategory", productCategories);
 		model.addAttribute("title", "Sporty Shoes: Edit Product Category");
 		return "admin/edit_product_category";
