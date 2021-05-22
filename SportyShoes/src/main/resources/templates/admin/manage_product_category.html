@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="admin/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>Document</title>
+</head>
+<body>
+	<section>
+		<!-- Begin Page Content -->
+		<div class="container-fluid">
+
+			<!-- Page Heading -->
+			<h1 class="h3 mb-2 text-gray-800">Product</h1>
+			<hr>
+			<a class="btn btn-sm btn-primary" th:href="@{/add_category}">Add Category</a>
+			<hr>
+			<!-- DataTales Example -->
+			<div class="card shadow mb-4">
+				<div class="card-header py-3">
+					<h6 class="m-0 font-weight-bold text-primary">Product Category List</h6>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-bordered" id="dataTable" width="100%"
+							cellspacing="0">
+							<thead>
+								<tr>
+									<th>Id</th>
+									<th>Category Name</th>
+									<th>Image</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+							<tfoot>
+								<tr>
+									<th>Id</th>
+									<th>Category Name</th>
+									<th>Image</th>
+									<th>Action</th>
+								</tr>
+							</tfoot>
+							<tbody>
+								<tr th:each="pc : ${product_category}">
+									<td th:text="${pc.id}">Tiger Nixon</td>
+									<td th:text="${pc.categoryName}">System Architect</td>
+									<td><img src="" th:src="@{'/admin/img/'+${pc.image}}" width="75" height="75"/></td>
+									<td><a class="btn btn-sm btn-info" th:href="@{${pc.id}+'/editProductCategory'}">Edit</a>&nbsp;<a class="btn btn-sm btn-danger" th:href="@{'/deleteProductCategory/'+${pc.id}}">Delete</a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<!-- /.container-fluid -->
+
+		</div>
+		<!-- End of Main Content -->
+	</section>
+</body>
+</html>

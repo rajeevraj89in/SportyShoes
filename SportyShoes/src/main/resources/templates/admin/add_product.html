@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="admin/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>Document</title>
+</head>
+<body>
+	<section>
+		<!-- Begin Page Content -->
+		<div class="container-fluid">
+
+			<!-- Page Heading -->
+			<h1 class="h3 mb-2 text-gray-800">Product</h1>
+			<!-- DataTales Example -->
+			<div class="card shadow mb-4">
+				<div class="card-header py-3">
+					<h6 class="m-0 font-weight-bold text-primary">Add Product</h6>
+				</div>
+				<div class="card-body">
+					<form action="#" enctype="multipart/form-data"
+						th:action="@{/saveProduct}" method="POST">
+						<div class="row">
+							<div class="form-group col-md-6">
+								<label for="category">Product Category</label><select
+									type="text" class="form-control" id="category" name="category">
+									<option value="0">- Select Category -</option>
+									<option th:each="pc:${product_category}" th:value="${pc.id}"
+										th:text="${pc.categoryName}" />
+								</select>
+							</div>
+							<div class="form-group col-md-6">
+								<label for="productName">Product Name</label> <input type="text"
+									class="form-control" id="productName" name="productName"
+									placeholder="Enter product name">
+							</div>
+							<div class="form-group col-md-6">
+								<label for="brand">Product Brand</label> <input type="text"
+									class="form-control" id="brand" name="brand"
+									placeholder="Enter product brand">
+							</div>
+							<div class="form-group col-md-6">
+								<label for="colour">Product Color</label> <input type="text"
+									class="form-control" id="colour" name="colour"
+									placeholder="Enter product category name">
+							</div>
+							<div class="form-group col-md-6">
+								<label for="size">Product Size</label> <input type="text"
+									class="form-control" id="size" name="size"
+									placeholder="Enter product size">
+							</div>
+							<div class="form-group col-md-6">
+								<label for="price">Product Cost</label> <input type="text"
+									class="form-control" id="price" name="price"
+									placeholder="Enter product cost">
+							</div>
+							<div class="form-group col-md-12">
+								<label for="shortDescription">Short Description</label>
+								<textarea class="form-control" id="shortDescription" rows="3"
+									name="shortDescription"></textarea>
+							</div>
+							<div class="form-group col-md-12">
+								<label for="longDescription">Long Description</label>
+								<textarea class="form-control" id="longDescription" rows="3"
+									name="longDescription"></textarea>
+							</div>
+							<div class="form-group col-md-6">
+								<label for="image">Product Image</label> <input type="file"
+									class="form-control-file" onchange="loadFile(event)" id="image"
+									name="image">
+								<p>
+									<img id="output" width="200" height="200" />
+								</p>
+							</div>
+							<div class="form-group col-md-6">
+								<br>
+								<button type="submit" class="btn btn-sm btn-primary">Submit</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+		</div>
+		<!-- /.container-fluid -->
+
+		</div>
+		<!-- End of Main Content -->
+		<script>
+		var loadFile = function(event) {
+			var image = document.getElementById('output');
+			image.src = URL.createObjectURL(event.target.files[0]);
+		};
+		</script>
+	</section>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="admin/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>Document</title>
+</head>
+<body>
+	<section>
+		<!-- Begin Page Content -->
+		<div class="container-fluid">
+
+			<!-- Page Heading -->
+			<h1 class="h3 mb-2 text-gray-800">Purchase Report</h1>
+			<!-- <hr>
+			<a class="btn btn-sm btn-primary" th:href="@{/addUser}">Add User</a> -->
+			<hr>
+			<!-- DataTales Example -->
+			<div class="card shadow mb-4">
+				<div class="card-header py-3">
+					<h6 class="m-0 font-weight-bold text-primary">Purchase List</h6>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-bordered" id="dataTable" width="100%"
+							cellspacing="0">
+							<thead>
+								<tr>
+									<th>Id</th>
+									<th>Category</th>
+									<th>Product</th>
+									<th>Quantity</th>
+									<th>Total Amount</th>
+									<th>Purchase Date</th>
+								</tr>
+							</thead>
+							<tfoot>
+								<tr>
+									<th>Id</th>
+									<th>Category</th>
+									<th>Product</th>
+									<th>Quantity</th>
+									<th>Total Amount</th>
+									<th>Purchase Date</th>
+								</tr>
+							</tfoot>
+							<tbody>
+								<tr th:each="u : ${purchase}">
+									<td th:text="${u.id}">Tiger Nixon</td>
+									<td th:text="${u.category}">System Architect</td>
+									<td th:text="${u.product}">System Architect</td>
+									<td th:text="${u.quantity}">System Architect</td>
+									<td th:text="${u.amount}">System Architect</td>
+									<td th:text="${u.createdDate}">System Architect</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<!-- /.container-fluid -->
+
+		</div>
+		<!-- End of Main Content -->
+	</section>
+</body>
+</html>
